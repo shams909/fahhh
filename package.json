@@ -2,7 +2,7 @@
     "name": "fahhhh-screamer",
     "displayName": "FAhhhh Screamer",
     "description": "Screams the FAhhhh meme when your code errors! Audio alert for failed builds, syntax errors, task failures & debug crashes. Works on Windows, macOS & Linux.",
-    "version": "2.0.2",
+    "version": "2.1.0",
     "icon": "icon.png",
     "publisher": "Shams",
     "engines": {
@@ -50,14 +50,39 @@
                 "fahhhhScreamer.enabled": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Enable or disable the FAhhhh Screamer extension."
+                    "description": "Globally enable or disable the FAhhhh Screamer extension."
                 },
                 "fahhhhScreamer.volume": {
                     "type": "number",
                     "default": 1.0,
                     "minimum": 0.0,
                     "maximum": 1.0,
-                    "description": "Volume for the scream sound (0.0 = silent, 1.0 = maximum). Note: Volume control is only supported on macOS."
+                    "description": "Volume for the scream sound (0.0 = silent, 1.0 = max). Note: Volume control is only supported on macOS (uses afplay)."
+                },
+                "fahhhhScreamer.soundFile": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Path to a custom sound file (.mp3 or .wav) to play instead of the bundled FAhhhh sound. Leave empty to use the default. Supports ~ for home directory (e.g. ~/sounds/meme.mp3)."
+                },
+                "fahhhhScreamer.playOnDiagnostics": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Scream when a new red squiggle (syntax/type error) appears while you type."
+                },
+                "fahhhhScreamer.playOnSave": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Scream when you save a file that still has errors."
+                },
+                "fahhhhScreamer.playOnTaskFailure": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Scream when a VS Code task (build, test, etc.) exits with a non-zero error code."
+                },
+                "fahhhhScreamer.playOnDebuggerCrash": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Scream when the debugger halts due to an unhandled exception in your app."
                 }
             }
         }

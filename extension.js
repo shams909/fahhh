@@ -31,16 +31,37 @@ function activate(context) {
     // --- Cross-platform audio player ---
     const vbsPath = path.join(context.extensionPath, 'play.vbs');
 
-    const playScream = () => {
+    const playScream = (trigger = 'any') => {
         const config = getConfig();
 
-        // Respect the enable/disable toggle
+        // Respect the global enable/disable toggle
         if (!config.get('enabled', true)) return;
 
-        // Find the sound file
-        let soundPath = path.join(context.extensionPath, 'fahhh_KcgAXfs.mp3');
-        if (!fs.existsSync(soundPath)) soundPath = path.join(context.extensionPath, 'fahhh.mp3');
-        if (!fs.existsSync(soundPath)) soundPath = path.join(context.extensionPath, 'fahhh.wav');
+        // Respect per-trigger toggles
+        if (trigger === 'diagnostics' && !config.get('playOnDiagnostics', true)) return;
+        if (trigger === 'save' && !config.get('playOnSave', true)) return;
+        if (trigger === 'task' && !config.get('playOnTaskFailure', true)) return;
+        if (trigger === 'debugger' && !config.get('playOnDebuggerCrash', true)) return;
+
+        // Sound file: check custom path setting first, then fall back to bundled files
+        const customSoundFile = config.get('soundFile', '');
+        let soundPath = '';
+
+        if (customSoundFile && customSoundFile.trim() !== '') {
+            // Expand ~ to home directory for cross-platform paths
+            soundPath = customSoundFile.replace(/^~/, os.homedir());
+            if (!fs.existsSync(soundPath)) {
+                vscode.window.showWarningMessage(`FAhhhh Screamer: Custom sound file not found: ${soundPath}. Falling back to bundled sound.`);
+                soundPath = '';
+            }
+        }
+
+        // Fall back to bundled sound if no custom file
+        if (!soundPath) {
+            soundPath = path.join(context.extensionPath, 'fahhh_KcgAXfs.mp3');
+            if (!fs.existsSync(soundPath)) soundPath = path.join(context.extensionPath, 'fahhh.mp3');
+            if (!fs.existsSync(soundPath)) soundPath = path.join(context.extensionPath, 'fahhh.wav');
+        }
 
         if (!fs.existsSync(soundPath)) {
             vscode.window.showErrorMessage('FAhhhh Screamer: Sound file not found!');
@@ -97,7 +118,7 @@ function activate(context) {
     // --- Trigger 1: VS Code task failures ---
     vscode.tasks.onDidEndTaskProcess((event) => {
         if (event.exitCode !== 0) {
-            playScream();
+            playScream('task');
         }
     }, null, context.subscriptions);
 
@@ -105,7 +126,7 @@ function activate(context) {
     vscode.workspace.onDidSaveTextDocument((document) => {
         const diagnostics = vscode.languages.getDiagnostics(document.uri);
         const hasErrors = diagnostics.some(d => d.severity === vscode.DiagnosticSeverity.Error);
-        if (hasErrors) playScream();
+        if (hasErrors) playScream('save');
     }, null, context.subscriptions);
 
     // --- Trigger 3: Actual debugger CRASH (unhandled exception) ---
@@ -116,7 +137,7 @@ function activate(context) {
             event.event === 'stopped' &&
             (event.body?.reason === 'exception' || event.body?.reason === 'signal')
         ) {
-            playScream();
+            playScream('debugger');
         }
     }, null, context.subscriptions);
 
@@ -134,7 +155,7 @@ function activate(context) {
                 const currentErrorCount = diagnostics.filter(d => d.severity === vscode.DiagnosticSeverity.Error).length;
 
                 if (currentErrorCount > previousErrorCount) {
-                    playScream();
+                    playScream('diagnostics');
                 }
                 previousErrorCount = currentErrorCount;
             }
