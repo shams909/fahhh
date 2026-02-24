@@ -1,8 +1,8 @@
 {
     "name": "fahhhh-screamer",
     "displayName": "FAhhhh Screamer",
-    "description": "Screams the FAhhhh meme when your code fails!",
-    "version": "1.0.7",
+    "description": "Screams the FAhhhh meme when your code errors! Audio alert for failed builds, syntax errors, task failures & debug crashes. Works on Windows, macOS & Linux.",
+    "version": "2.0.0",
     "icon": "icon.png",
     "publisher": "Shams",
     "engines": {
@@ -10,6 +10,20 @@
     },
     "categories": [
         "Other"
+    ],
+    "keywords": [
+        "meme",
+        "sound",
+        "audio",
+        "error",
+        "alert",
+        "funny",
+        "notification",
+        "build failure",
+        "scream",
+        "fahhhh",
+        "diagnostic",
+        "error sound"
     ],
     "activationEvents": [
         "*"
@@ -19,9 +33,34 @@
         "commands": [
             {
                 "command": "fahhhh.testScream",
-                "title": "Test FAhhhh Scream"
+                "title": "FAhhhh: Test Scream"
+            },
+            {
+                "command": "fahhhh.toggle",
+                "title": "FAhhhh: Toggle Enable/Disable"
+            },
+            {
+                "command": "fahhhh.resetCount",
+                "title": "FAhhhh: Reset Scream Counter"
             }
-        ]
+        ],
+        "configuration": {
+            "title": "FAhhhh Screamer",
+            "properties": {
+                "fahhhhScreamer.enabled": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Enable or disable the FAhhhh Screamer extension."
+                },
+                "fahhhhScreamer.volume": {
+                    "type": "number",
+                    "default": 1.0,
+                    "minimum": 0.0,
+                    "maximum": 1.0,
+                    "description": "Volume for the scream sound (0.0 = silent, 1.0 = maximum). Note: Volume control is only supported on macOS."
+                }
+            }
+        }
     },
     "repository": {
         "type": "git",
