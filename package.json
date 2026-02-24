@@ -1,0 +1,34 @@
+{
+    "name": "fahhhh-screamer",
+    "displayName": "FAhhhh Screamer",
+    "description": "Screams the FAhhhh meme when your code fails!",
+    "version": "1.0.5",
+    "icon": "icon.png",
+    "publisher": "shams",
+    "engines": {
+        "vscode": "^1.85.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "*"
+    ],
+    "main": "./extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "fahhhh.testScream",
+                "title": "Test FAhhhh Scream"
+            }
+        ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/shams/fahhhh-screamer"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "@types/vscode": "^1.85.0"
+    }
+}
