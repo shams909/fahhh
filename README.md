@@ -4,8 +4,6 @@
 > Stop staring at silent red squiggles. Get instant, hilarious audio feedback on build failures, syntax errors, test crashes, and debug exceptions.
 
 [![VS Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/Shams.fahhhh-screamer?style=flat-square&label=version&color=blue)](https://marketplace.visualstudio.com/items?itemName=Shams.fahhhh-screamer)
-[![VS Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/Shams.fahhhh-screamer?style=flat-square&label=installs&color=brightgreen)](https://marketplace.visualstudio.com/items?itemName=Shams.fahhhh-screamer)
-[![VS Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/Shams.fahhhh-screamer?style=flat-square&label=rating&color=yellow)](https://marketplace.visualstudio.com/items?itemName=Shams.fahhhh-screamer)
 [![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square)](https://github.com/shams909/fahhh/blob/main/LICENSE.md)
 
 ---
