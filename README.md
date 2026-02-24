@@ -2,9 +2,9 @@
 
 **Never miss a broken build again.** The ultimate, hilarious VS Code extension that screams the legendary "FAhhhhhhhh!" meme directly into your soul whenever your code fails.
 
-[![Version](https://vsmarketplacebadges.dev/version/shams.fahhhh-screamer.png)](https://marketplace.visualstudio.com/items?itemName=shams.fahhhh-screamer)
-[![Installs](https://vsmarketplacebadges.dev/installs/shams.fahhhh-screamer.png)](https://marketplace.visualstudio.com/items?itemName=shams.fahhhh-screamer)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Version](https://img.shields.io/visual-studio-marketplace/v/Shams.fahhhh-screamer?label=version&color=blue)](https://marketplace.visualstudio.com/items?itemName=Shams.fahhhh-screamer)
+[![Installs](https://img.shields.io/visual-studio-marketplace/i/Shams.fahhhh-screamer?label=installs&color=green)](https://marketplace.visualstudio.com/items?itemName=Shams.fahhhh-screamer)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/shams909/fahhh/blob/main/LICENSE.md)
 
 ---
 
