@@ -16,7 +16,10 @@ function activate(context) {
     statusBarItem.tooltip = 'FAhhhh Screamer - Total screams this session';
     statusBarItem.command = 'fahhhh.testScream';
     const updateStatusBar = () => {
-        statusBarItem.text = `😱 $(megaphone) ${screamCount}`;
+        statusBarItem.text = `$(bell) FAhhhh x${screamCount}`;
+        statusBarItem.backgroundColor = screamCount > 0
+            ? new vscode.ThemeColor('statusBarItem.warningBackground')
+            : undefined;
     };
     updateStatusBar();
     statusBarItem.show();
@@ -133,6 +136,6 @@ function activate(context) {
     }, null, context.subscriptions);
 }
 
-function deactivate() {}
+function deactivate() { }
 
 module.exports = { activate, deactivate };
