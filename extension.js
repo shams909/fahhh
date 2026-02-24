@@ -108,10 +108,16 @@ function activate(context) {
         if (hasErrors) playScream();
     }, null, context.subscriptions);
 
-    // --- Trigger 3: Debugger session starts (catches runtime crashes) ---
-    vscode.debug.onDidChangeActiveDebugSession(session => {
-        if (!session) return;
-        playScream();
+    // --- Trigger 3: Actual debugger CRASH (unhandled exception) ---
+    // This uses the DAP (Debug Adapter Protocol) stopped event, which fires specifically
+    // when execution halts due to an exception - NOT on normal starts/stops.
+    vscode.debug.onDidReceiveDebugSessionCustomEvent(event => {
+        if (
+            event.event === 'stopped' &&
+            (event.body?.reason === 'exception' || event.body?.reason === 'signal')
+        ) {
+            playScream();
+        }
     }, null, context.subscriptions);
 
     // --- Trigger 4: Live diagnostics (new red squiggles while typing) ---

@@ -12,8 +12,8 @@
 
 - 🔴 **Live Error Detection** — Screams the moment a new red squiggle appears while you type
 - 💾 **Save & Scream** — Saves a broken file? Caught. Screams instantly on `Ctrl+S`
-- 🛑 **Build & Task Failure** — Screams when any VS Code task exits with a non-zero code (npm, pytest, gradle, etc.)
-- 🐛 **Debugger Crash Detection** — Hooks into the VS Code Debug API and screams when your app crashes
+- 🛑 **Build & Task Failure** — Screams when a VS Code Task exits with a non-zero code (run via `Ctrl+Shift+B` or `Terminal → Run Task`)
+- 🐛 **Debugger Crash Detection** — Listens for DAP exception events and screams when your app crashes with an unhandled exception
 - 😱 **Scream Counter** — Status bar shows exactly how many times you've been screamed at today. Click it to test the sound.
 - 🔇 **Quick Toggle** — Disable/enable from the Command Palette without uninstalling
 - 🔊 **Volume Control** — Adjust the scream volume from your VS Code settings (0.0 – 1.0)
