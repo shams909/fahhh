@@ -1,4 +1,4 @@
-# ![FAhhhh Screamer Icon](icon.png) FAhhhh Screamer
+# FAhhhh Screamer 😱
 
 **Never miss a broken build again.** The ultimate, hilarious VS Code extension that screams the legendary "FAhhhhhhhh!" meme directly into your soul whenever your code fails.
 
@@ -34,7 +34,7 @@ By default, the extension comes pre-loaded with the authentic `fahhh_KcgAXfs.mp3
 
 ## 📜 License
 
-This project is licensed under the [MIT License](LICENSE.md). 
+This project is licensed under the [MIT License](https://github.com/shams909/fahhh/blob/main/LICENSE.md).
 
 ---
 *Built by Shams.*
