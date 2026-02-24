@@ -1,61 +1,99 @@
 # FAhhhh Screamer 😱
 
-**The VS Code extension that screams the legendary "FAhhhhhhhh!" meme whenever your code has errors.** Get instant audio feedback on build failures, syntax errors, test crashes, and debugging exceptions.
+> **The VS Code extension that screams the legendary "FAhhhhhhhh!" meme every time your code has errors.**
+> Stop staring at silent red squiggles. Get instant, hilarious audio feedback on build failures, syntax errors, test crashes, and debug exceptions.
 
-[![Version](https://img.shields.io/visual-studio-marketplace/v/Shams.fahhhh-screamer?label=version&color=blue)](https://marketplace.visualstudio.com/items?itemName=Shams.fahhhh-screamer)
-[![Installs](https://img.shields.io/visual-studio-marketplace/i/Shams.fahhhh-screamer?label=installs&color=green)](https://marketplace.visualstudio.com/items?itemName=Shams.fahhhh-screamer)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/shams909/fahhh/blob/main/LICENSE.md)
+[![VS Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/Shams.fahhhh-screamer?style=flat-square&label=version&color=blue)](https://marketplace.visualstudio.com/items?itemName=Shams.fahhhh-screamer)
+[![VS Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/Shams.fahhhh-screamer?style=flat-square&label=installs&color=brightgreen)](https://marketplace.visualstudio.com/items?itemName=Shams.fahhhh-screamer)
+[![VS Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/Shams.fahhhh-screamer?style=flat-square&label=rating&color=yellow)](https://marketplace.visualstudio.com/items?itemName=Shams.fahhhh-screamer)
+[![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square)](https://github.com/shams909/fahhh/blob/main/LICENSE.md)
 
 ---
 
-## 🚀 Features
+## ✨ Features
 
-Stop silently staring at red text. **FAhhhh Screamer** blasts the iconic meme audio the moment anything goes wrong:
+- 🔴 **Live Error Detection** — Screams the moment a new red squiggle appears while you type
+- 💾 **Save & Scream** — Saves a broken file? Caught. Screams instantly on `Ctrl+S`
+- 🛑 **Build & Task Failure** — Screams when any VS Code task exits with a non-zero code (npm, pytest, gradle, etc.)
+- 🐛 **Debugger Crash Detection** — Hooks into the VS Code Debug API and screams when your app crashes
+- 😱 **Scream Counter** — Status bar shows exactly how many times you've been screamed at today. Click it to test the sound.
+- 🔇 **Quick Toggle** — Disable/enable from the Command Palette without uninstalling
+- 🔊 **Volume Control** — Adjust the scream volume from your VS Code settings (0.0 – 1.0)
 
-| Trigger | What happens |
-|---|---|
-| 🔴 **New red squiggle** | Screams as you type |
-| 💾 **Save broken file** | Screams on `Ctrl+S` |
-| 🛑 **Build/task failure** | Screams when exit code ≠ 0 |
-| 🐛 **Debugger crash** | Screams when the debugger halts |
-
-## 😱 Scream Counter
-The status bar shows how many times you've been screamed at this session. A fun way to track your daily bug count. Click it to test the scream anytime.
-
-## ⚙️ Configuration
-
-Go to **Settings** (`Ctrl+,`) and search `FAhhhh` to configure:
-
-| Setting | Default | Description |
-|---|---|---|
-| `fahhhhScreamer.enabled` | `true` | Turn the screaming on or off |
-| `fahhhhScreamer.volume` | `1.0` | Volume from 0.0 (silent) to 1.0 (max). macOS only. |
+---
 
 ## 💻 Platform Support
 
-| Platform | Status |
-|---|---|
-| Windows | ✅ Full support |
-| macOS | ✅ Full support (with volume control) |
-| Linux | ✅ Full support (requires PulseAudio or ALSA) |
+| Platform | Audio Engine | Status |
+|---|---|---|
+| **Windows** | Windows Script Host (VBScript) | ✅ Fully supported |
+| **macOS** | `afplay` (built-in) | ✅ Fully supported + volume control |
+| **Linux** | `paplay` / `aplay` (PulseAudio / ALSA) | ✅ Fully supported |
 
-## 📦 Installation
+---
 
-1. Install from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=Shams.fahhhh-screamer).
-2. Turn your speakers on.
-3. Write bad code. It will let you know.
+## ⚙️ Configuration
 
-## 🛠️ Commands
+Open VS Code Settings (`Ctrl+,`) and search for `FAhhhh` to configure:
+
+| Setting | Type | Default | Description |
+|---|---|---|---|
+| `fahhhhScreamer.enabled` | `boolean` | `true` | Globally enable or disable all screaming |
+| `fahhhhScreamer.volume` | `number` | `1.0` | Volume level from `0.0` (silent) to `1.0` (max). macOS only. |
+
+**Example `settings.json`:**
+```json
+{
+  "fahhhhScreamer.enabled": true,
+  "fahhhhScreamer.volume": 0.8
+}
+```
+
+---
+
+## �️ Commands
 
 Open the Command Palette (`Ctrl+Shift+P`) and type `FAhhhh`:
 
-- **FAhhhh: Test Scream** — Play the sound manually to verify it's working
-- **FAhhhh: Toggle Enable/Disable** — Quickly mute/unmute the extension
-- **FAhhhh: Reset Scream Counter** — Reset the status bar counter to 0
+| Command | Description |
+|---|---|
+| `FAhhhh: Test Scream` | Manually trigger a scream to verify the sound is working |
+| `FAhhhh: Toggle Enable/Disable` | Quickly mute or unmute the extension |
+| `FAhhhh: Reset Scream Counter` | Reset the status bar counter back to zero |
+
+---
+
+## 📦 Installation
+
+1. Open VS Code
+2. Go to Extensions (`Ctrl+Shift+X`)
+3. Search **"FAhhhh Screamer"**
+4. Click **Install**
+5. Turn your speakers on and write bad code
+
+**Linux users:** Ensure PulseAudio or ALSA is installed:
+```bash
+sudo apt-get install pulseaudio   # Ubuntu/Debian
+sudo pacman -S pulseaudio         # Arch
+```
+
+---
+
+## � How It Works
+
+The extension hooks into **four** VS Code native APIs simultaneously to catch errors at every stage:
+
+1. **`vscode.languages.onDidChangeDiagnostics`** — Watches the Problems panel in real-time for new errors as you type
+2. **`vscode.workspace.onDidSaveTextDocument`** — Checks for errors at the moment you save
+3. **`vscode.tasks.onDidEndTaskProcess`** — Listens for non-zero exit codes from tasks (build tools, test runners)
+4. **`vscode.debug.onDidChangeActiveDebugSession`** — Hooks into the debugger to catch runtime exception halts
+
+---
 
 ## 📜 License
 
-This project is licensed under the [MIT License](https://github.com/shams909/fahhh/blob/main/LICENSE.md).
+[MIT](https://github.com/shams909/fahhh/blob/main/LICENSE.md) © [Shams](https://github.com/shams909)
 
 ---
-*Built by [Shams](https://github.com/shams909). PRs welcome.*
+
+*PRs and feature suggestions welcome at [github.com/shams909/fahhh](https://github.com/shams909/fahhh)*
