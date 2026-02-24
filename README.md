@@ -1,12 +1,10 @@
-<div align="center">
-  <img src="icon.png" width="150" alt="FAhhhh Screamer Icon">
-  <h1>FAhhhh Screamer</h1>
-  <p><b>Never miss a broken build again.</b> The ultimate, hilarious VS Code extension that screams the legendary "FAhhhhhhhh!" meme directly into your soul whenever your code fails.</p>
+# ![FAhhhh Screamer Icon](icon.png) FAhhhh Screamer
 
-  [![Version](https://vsmarketplacebadges.dev/version/shams.fahhhh-screamer.png)](https://marketplace.visualstudio.com/items?itemName=shams.fahhhh-screamer)
-  [![Installs](https://vsmarketplacebadges.dev/installs/shams.fahhhh-screamer.png)](https://marketplace.visualstudio.com/items?itemName=shams.fahhhh-screamer)
-  [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-</div>
+**Never miss a broken build again.** The ultimate, hilarious VS Code extension that screams the legendary "FAhhhhhhhh!" meme directly into your soul whenever your code fails.
+
+[![Version](https://vsmarketplacebadges.dev/version/shams.fahhhh-screamer.png)](https://marketplace.visualstudio.com/items?itemName=shams.fahhhh-screamer)
+[![Installs](https://vsmarketplacebadges.dev/installs/shams.fahhhh-screamer.png)](https://marketplace.visualstudio.com/items?itemName=shams.fahhhh-screamer)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ---
 
