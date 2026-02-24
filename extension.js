@@ -112,6 +112,25 @@ function activate(context) {
             context.globalState.update('screamCount', 0);
             updateStatusBar();
             vscode.window.showInformationMessage('😱 Scream counter reset to 0!');
+        }),
+        vscode.commands.registerCommand('fahhhh.pickSoundFile', async () => {
+            // Open native file browser dialog filtered to audio files
+            const selected = await vscode.window.showOpenDialog({
+                canSelectMany: false,
+                openLabel: 'Use This Sound',
+                filters: { 'Audio Files': ['mp3', 'wav', 'm4a'] },
+                title: 'Pick your FAhhhh sound file'
+            });
+
+            if (selected && selected.length > 0) {
+                const filePath = selected[0].fsPath;
+                const config = getConfig();
+                await config.update('soundFile', filePath, vscode.ConfigurationTarget.Global);
+                vscode.window.showInformationMessage(
+                    `😱 FAhhhh Screamer: Sound set to "${path.basename(filePath)}"! ` +
+                    `Run "FAhhhh: Test Scream" to preview it.`
+                );
+            }
         })
     );
 

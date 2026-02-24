@@ -2,7 +2,7 @@
     "name": "fahhhh-screamer",
     "displayName": "FAhhhh Screamer",
     "description": "Screams the FAhhhh meme when your code errors! Audio alert for failed builds, syntax errors, task failures & debug crashes. Works on Windows, macOS & Linux.",
-    "version": "2.1.0",
+    "version": "2.1.1",
     "icon": "icon.png",
     "publisher": "Shams",
     "engines": {
@@ -42,6 +42,10 @@
             {
                 "command": "fahhhh.resetCount",
                 "title": "FAhhhh: Reset Scream Counter"
+            },
+            {
+                "command": "fahhhh.pickSoundFile",
+                "title": "FAhhhh: Pick Custom Sound File..."
             }
         ],
         "configuration": {
