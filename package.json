@@ -2,7 +2,7 @@
     "name": "fahhhh-screamer",
     "displayName": "FAhhhh Screamer",
     "description": "Screams the FAhhhh meme when your code errors! Audio alert for failed builds, syntax errors, task failures & debug crashes. Works on Windows, macOS & Linux.",
-    "version": "2.1.4",
+    "version": "2.1.5",
     "icon": "icon.png",
     "publisher": "Shams",
     "engines": {

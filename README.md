@@ -11,6 +11,7 @@
 ## ✨ Features
 
 - 🔴 **Live Error Detection** — Screams the moment a new red squiggle appears while you type
+- 🍞 **Random Funny Toasts** — Shows a random hilarious roast message (like `💀 RIP your code`) along with the scream
 - 💾 **Save & Scream** — Saves a broken file? Caught. Screams instantly on `Ctrl+S`
 - 🛑 **Build & Task Failure** — Screams when a VS Code Task exits with a non-zero code (run via `Ctrl+Shift+B` or `Terminal → Run Task`)
 - 🐛 **Debugger Crash Detection** — Listens for DAP exception events and screams when your app crashes with an unhandled exception
