@@ -91,12 +91,27 @@ function activate(context) {
         screamCount++;
         context.globalState.update('screamCount', screamCount);
         updateStatusBar();
+
+        // Show a random funny toast message
+        const SCREAM_MESSAGES = [
+            'FAhhhhhhhh! 😱 You broke it again bruv!',
+            '💀 RIP your code. FAhhhhhhhh!',
+            '😱 SCREAMING INTERNALLY... and externally',
+            'Your code just died. FAhhhhhhhh! 🔥',
+            '🚨 ERROR DETECTED. INITIATING SCREAM PROTOCOL.',
+            'bruh... FAhhhhhhhh! 💀',
+            '😤 Another one bites the dust. FAhhhhhhhh!',
+            '🤦 Have you tried turning your brain off and on again? FAhhhhhhhh!',
+            '📢 ATTENTION: Your code has committed a crime. FAhhhhhhhh!',
+            '😂 It\'s not a bug, it\'s a feature. FAhhhhhhhh!'
+        ];
+        const randomMessage = SCREAM_MESSAGES[Math.floor(Math.random() * SCREAM_MESSAGES.length)];
+        vscode.window.showErrorMessage(randomMessage);
     };
 
     // --- Commands ---
     context.subscriptions.push(
         vscode.commands.registerCommand('fahhhh.testScream', () => {
-            vscode.window.showInformationMessage('FAhhhhhhhh! 😱');
             playScream();
         }),
         vscode.commands.registerCommand('fahhhh.toggle', () => {
